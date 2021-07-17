@@ -1,4 +1,5 @@
 //#include "primitives.hpp"
+//#include "text.hpp"
 void man1() {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
@@ -36,6 +37,11 @@ grass1();
 tree();
 idle1();
 man1();
+/*switch(count){
+	case 1: cloud7(135,183," ","Concentrate!!! "," "); break;
+	
+}*/
+//cloud7(135,183," ","Concentrate!!! "," "); 
 arrow();
 //sea()
 		

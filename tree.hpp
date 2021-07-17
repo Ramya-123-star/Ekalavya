@@ -157,5 +157,3 @@ glVertex2f(17.0,54.0);
  glVertex2f(17.5,56.0);
  glEnd();
 }
-
-

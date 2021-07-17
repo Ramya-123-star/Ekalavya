@@ -2,8 +2,8 @@
 void drawCircle(int r, float xpos, float ypos, int depthIndex,int hollow, int startAngle, int endAngle)
     {
         int i;
-        glPushMatrix();
-        glTranslatef(xpos, ypos, 0);
+        //glPushMatrix();
+        glTranslatef(xpos, ypos,0);
         if (!hollow)
             glBegin(GL_POLYGON);
         else
@@ -15,18 +15,18 @@ void drawCircle(int r, float xpos, float ypos, int depthIndex,int hollow, int st
         {
             float x = r * cos((i * 3.142) / 180);
             float y = r * sin((i * 3.142) / 180);
-            glVertex3f(x, y, depthIndex);
+            glVertex2f(x, y);
         }
         glEnd();
-        glPopMatrix();
+        //glPopMatrix();
     }
 
 
 void drawEllipse(int xCenter, int yCenter, int Rx, int Ry, int depthIndex,int hollow, int startAngle, int stopAngle)
     {
         float i;
-        glPushMatrix();
-        glTranslatef(xCenter, yCenter, 0);
+        //glPushMatrix();
+        glTranslatef(xCenter, yCenter,0);
         //glColor3f(1.0,0.0,0.0);
         if (hollow)
         {
@@ -39,31 +39,36 @@ void drawEllipse(int xCenter, int yCenter, int Rx, int Ry, int depthIndex,int ho
         {
             float x = Rx * cos((i * 3.142) / 180);
             float y = Ry * sin((i * 3.142) / 180);
-            glVertex3f(x, y, depthIndex);
+            glVertex2f(x, y);
         }
         glEnd();
-        glPopMatrix();
+        //glPopMatrix();
     }
 
 void drawtext(float x, float y, char *s)
 {
     int i;
     glColor3f(0, 0, 0);
-    glRasterPos3f(x, y,9);
+    glRasterPos2f(x, y);
     for (i = 0; s[i] != '\0'; i++)
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, s[i]);
 }
-void cloud7(int xpos, int ypos, char *line1, char *line2)
+void cloud7(int xpos, int ypos, char *line1, char *line2,char *line3)
     {
-        glPushMatrix();
-        glTranslatef(xpos, ypos, 0);
-        glColor4f(1, 1, 1,0.5);
-        drawCircle(30, 40, 60, 5, 0, 0, 360);
-        drawCircle(50, 80, 110, 5, 0, 0, 360);
-        glColor4f(1, 1, 1,0.5);
-        drawEllipse(400,240,400,150, 5, 0, 0, 360);
-        glColor4f(1,1,1,1);
-        drawtext(130, 280, line1);
-        drawtext(130, 200, line2);
-        glPopMatrix();
+    	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(20,480,20,480);
+        //glPushMatrix();
+        glTranslatef(xpos, ypos,0);
+        glColor3f(1, 1, 1);
+        drawCircle(8, 0, 0, 5, 0, 0, 360);
+        drawCircle(10, 10, 10, 5, 0, 0, 360);
+        drawCircle(12, 10, 15, 5, 0, 0, 360);
+        glColor3f(1, 1, 1);
+        drawEllipse(22,30,48,22.5, 5, 0, 0, 360);
+        glColor3f(1,1,1);
+        drawtext(-30, 10, line1);
+        drawtext(-30, 0, line2);
+        drawtext(-30, -10, line3);
+        //glPopMatrix();
     }

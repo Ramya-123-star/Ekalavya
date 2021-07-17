@@ -10,6 +10,7 @@
 #include "ground1.hpp"
 #include "arrow1.hpp"
 #include "idle.hpp"
+//#include  "text.hpp"
 
 void tree() {
 	glMatrixMode(GL_PROJECTION);

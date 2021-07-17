@@ -63,7 +63,26 @@ stud11();
 stud0();
 house();
 man3();
-drona8();
+
+drona8();//Give me the thumb of your right hand as your Guru Dakshina
+/*switch(count){
+	case 1: cloud7(342,340," ","I am Amazed by your skills! "," Who is your guru?  ");break;
+	case 2: cloud7(302,313,"You are my guru,,","I have learned from you."," ");break;
+	case 3: cloud7(342,340," ","How is it possible?? "," "); break;
+	case 4: cloud7(302,313,"I have made an","idol of you,and have "," accepted as my guru. ");break;
+	case 5: cloud7(342,340,"If i am your guru, ","then you have to  ","give Guru Dakshina to me "); break;
+	case 6: cloud7(302,313,"What you want"," my Guru! ","  ");break;
+	case 7: cloud7(342,340,"Give me the thumb","of your right hand","as your Guru Dakshina. "); break;
+}*/
+//cloud7(342,340," ","I am Amazed by your skills! "," Who is your guru?  ");
+//cloud7(302,313,"You are my guru,,","I have learned from you."," ");
+//cloud7(342,340," ","How is it possible?? "," "); 
+//cloud7(302,313,"I have made an","idol of you,and have "," accepted as my guru. ");
+//cloud7(342,340,"If i am your guru, ","then you have to  ","give Guru Dakshina to me ");  
+//cloud7(302,313,"What you want"," my Guru! ","  ");
+//cloud7(342,340,"Give me the thumb","of your right hand","as your Guru Dakshina. "); 
+
+
 glRasterPos2f(200,-180);
 	for(j=0;j<strlen(str23);j++)
 	{

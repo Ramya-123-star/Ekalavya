@@ -9,7 +9,6 @@ glVertex2f(0,400);
 glVertex2f(700,400);
 glColor3f(0,1,0);
 glVertex2f(700,0);
-
 glVertex2f(0,0);
 glVertex2f(0,400);
 glEnd();
