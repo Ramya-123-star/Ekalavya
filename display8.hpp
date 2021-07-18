@@ -1,5 +1,7 @@
 //#include "primitives.hpp"
 //#include "house8.hpp"
+
+int scene4;
 void man3() {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
@@ -50,6 +52,7 @@ void drona8(){
 	gluOrtho2D(-170,330,-180,305);
 	drona1();
 }
+
 void mydisplay8()
 {
 glClear(GL_COLOR_BUFFER_BIT);
@@ -64,8 +67,9 @@ stud0();
 house();
 man3();
 
-drona8();//Give me the thumb of your right hand as your Guru Dakshina
-/*switch(count){
+drona8();
+
+switch(scene4){
 	case 1: cloud7(342,340," ","I am Amazed by your skills! "," Who is your guru?  ");break;
 	case 2: cloud7(302,313,"You are my guru,,","I have learned from you."," ");break;
 	case 3: cloud7(342,340," ","How is it possible?? "," "); break;
@@ -73,7 +77,7 @@ drona8();//Give me the thumb of your right hand as your Guru Dakshina
 	case 5: cloud7(342,340,"If i am your guru, ","then you have to  ","give Guru Dakshina to me "); break;
 	case 6: cloud7(302,313,"What you want"," my Guru! ","  ");break;
 	case 7: cloud7(342,340,"Give me the thumb","of your right hand","as your Guru Dakshina. "); break;
-}*/
+}
 //cloud7(342,340," ","I am Amazed by your skills! "," Who is your guru?  ");
 //cloud7(302,313,"You are my guru,,","I have learned from you."," ");
 //cloud7(342,340," ","How is it possible?? "," "); 
@@ -81,16 +85,18 @@ drona8();//Give me the thumb of your right hand as your Guru Dakshina
 //cloud7(342,340,"If i am your guru, ","then you have to  ","give Guru Dakshina to me ");  
 //cloud7(302,313,"What you want"," my Guru! ","  ");
 //cloud7(342,340,"Give me the thumb","of your right hand","as your Guru Dakshina. "); 
+glColor3f(1,0,0);
+glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(-170,330,-180,305);
 
-
-glRasterPos2f(200,-180);
-	for(j=0;j<strlen(str23);j++)
-	{
-		glColor3f(1,0,0);
-		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,str23[j]);
-	}
+if(scene4>7)
+	drawtext(-30,-150,"RIGHT CLICK ON THE SCREEN AND CLICK SCENE5 TO GO TO NEXT SCENE",1);
+else
+	drawtext(0,-150,"PRESS 'Y' TO CONTINUE",1);
 	glEnd();
 //glutKeyboardFunc(keys8);
 glFlush();
+glutPostRedisplay();
 }
 

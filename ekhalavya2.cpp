@@ -2,16 +2,20 @@
 #include<GL/glut.h>
 #include<stdio.h>
 #include<stdlib.h>
+#include<fstream>
+#include<iostream>
 #include<MMSystem.h>
 #include<string.h>
+//#define STB_IMAGE_IMPLEMENTATION
+//#include "stb_image.h"
+
 #include "display1.hpp"
 //#include "primitives.hpp"
 #include "display2.hpp"
 #include "display8.hpp"
 #include "display7.hpp"
 
-int scene1,scene2,scene3,scene4;
-
+int start1=0,start2=0,start3=0,start4=0,start5=0;
 //void leaf();
 //void sky();
 //void house();
@@ -100,7 +104,7 @@ void keys9(unsigned char key9,int x,int y);*/
 void myinit(void)
 
 {
-	glClearColor(1.0,1.0,1.0,1.0);
+	glClearColor(0.0,1.0,1.0,1.0);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluOrtho2D(0,500,0,500);
@@ -5672,7 +5676,7 @@ glEnd();
 	if(key9=='l')
 	{
 		//glutDestroyWindow(9);
-	//PlaySound(TEXT("9.wav"),NULL,SND_FILENAME|SND_ASYNC);
+	//PlaySound(TEXT("9.wav"),NULL,SND_FILENAME|SND_ASYNC);//just a sec
 	glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
 	glutInitWindowSize(3200,1200);
 	glutCreateWindow("EKALAYA page10");
@@ -5680,50 +5684,56 @@ glEnd();
 	myinit2();
 	}
 	glutMainLoop();
-
 }*/
 
 void key1(unsigned char key,int x,int y){
-	/*if(key=='R') 
-	glutDisplayFunc(mydisplay3);
-	else if(key=='A')
-	glutDisplayFunc(mydisplay6);
-	else if(key=='M')
-	glutDisplayFunc(mydisplay7);
-	else if(key=='Y')
-	glutDisplayFunc(mydisplay8);
-	else if(key=='A')
-	//glutDisplayFunc(mydisplay9);	
-		myinit2();
-	glutMainLoop();*/
-	/*switch(key){
-	    case 1 : mydisplay();break;
-		case 2 : scene1++;mydisplay3(scene1);break;
-		case 3 : scene2++;mydisplay6(scene2);break;
-		case 4 : scene3++;mydisplay7(scene3);break;
-		case 5 : scene4++;mydisplay8(scene4);break;
-	}*/
+	switch(key){
+		case 'R' :
+			scene1++;scene2=0;scene3=0;scene4=0;		
+		break;
+		
+		case 'A' :				
+			scene2++;scene1=0;scene3=0;scene4=0;			
+		break;
+		
+		case 'M' :
+		  scene3++;scene2=0;scene1=0;scene4=0;	
+				
+		break;
+		case 'Y': 		
+			scene4++;scene3=0;scene1=0;scene2=0;scene3=0;
+		
+	break;
+	}
+	glutPostRedisplay();
 }
 void menufunc(int n){
 	switch(n){
-		case 1 : mydisplay();
+		case 1 :glutDisplayFunc(mydisplay);	
 					break;
-		case 2 : mydisplay3();
-		//scene1=0;
+		case 2 :glutDisplayFunc(mydisplay3);
+		scene1=0;
 		          break;
-		case 3 : mydisplay6();
-		//scene2=0;
+		case 3 : start3=1;glutDisplayFunc(mydisplay6);
+		scene2=0;
+							
+
 		         break;
-		case 4 : mydisplay7();
-		//scene3=0;
+		case 4 : start4=1;glutDisplayFunc(mydisplay7);
+		scene3=0;
+							
+
 		          break;
-		case 5 : mydisplay8();
-		//scene4=0;
+		case 5 : start5=1;glutDisplayFunc(mydisplay8);
+		scene4=0;
+
 		          break;
-		//case 'B' : mydisplay();break;
+		//case 'B' : mydisplay();break;//
 		//case 'S' : mydisplay2();break;
 		
+		
 	}
+	glutPostRedisplay();
 }
 int main(int argc,char** argv)
 {
@@ -5733,7 +5743,9 @@ int main(int argc,char** argv)
 	glutInitWindowPosition(0,0);
 	glutCreateWindow("EKALAYA");
 	glutKeyboardFunc(key1);
+	//pix[0].readBMPFile("FRONT.bmp");
 	glutDisplayFunc(mydisplay);
+	scene1=scene2=scene3=scene4=0;
 	//glEnable(GL_DEPTH_TEST);
     glutCreateMenu(menufunc);
 	glutAddMenuEntry("INTRODUCTION",1);
@@ -5743,8 +5755,7 @@ int main(int argc,char** argv)
 	glutAddMenuEntry("Scene4",5);
 	//glutAddMenuEntry("Scene5",'B');
 	//glutAddMenuEntry("Moral",'S');
-	glutAttachMenu(GLUT_RIGHT_BUTTON);	
-	
+	glutAttachMenu(GLUT_RIGHT_BUTTON);		
 	//glutKeyboardFunc(keys1);
 	myinit();
 	glutMainLoop();

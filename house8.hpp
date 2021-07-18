@@ -27,7 +27,6 @@ void house()
 	glColor3f(0,0,0);
 	glVertex2f(155,210);
 	glEnd();
-	
 	glBegin(GL_POLYGON);
 	glColor3f(0,0,0);
 	glVertex2f(95,120);
@@ -43,5 +42,3 @@ void house()
 	glVertex2f(120,120);
 	glEnd();
 }
-
-

@@ -1,5 +1,7 @@
 //#include "primitives.hpp"
 //#include "text.hpp"
+
+int scene3;
 void man1() {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
@@ -37,22 +39,26 @@ grass1();
 tree();
 idle1();
 man1();
-/*switch(count){
+switch(scene3){
 	case 1: cloud7(135,183," ","Concentrate!!! "," "); break;
 	
-}*/
+}
 //cloud7(135,183," ","Concentrate!!! "," "); 
 arrow();
 //sea()
 		
 house1();
-glRasterPos2f(250,50);
-	for(j=0;j<strlen(str22);j++)
-   {
-		glColor3f(1,0,0);
-		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,str22[j]);
-   }
+glColor3f(1,0,0);
+glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(-10,130,+10,130);
+
+if(scene3>1)
+	drawtext(30,20,"RIGHT CLICK ON THE SCREEN AND CLICK SCENE4 TO GO TO NEXT SCENE",1);
+else
+	drawtext(50,20,"PRESS 'M' TO CONTINUE",1);
 	glEnd();
 //glutKeyboardFunc(keys7);
 glFlush();
+glutPostRedisplay();
 }

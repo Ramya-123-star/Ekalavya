@@ -45,19 +45,25 @@ void drawEllipse(int xCenter, int yCenter, int Rx, int Ry, int depthIndex,int ho
         //glPopMatrix();
     }
 
-void drawtext(float x, float y, char *s)
+void drawtext(float x, float y, char *s,int flag)
 {
     int i;
-    glColor3f(0, 0, 0);
+    //glClearColor(0.0,0.0,0.0,0.0);
     glRasterPos2f(x, y);
+    if(!flag){
     for (i = 0; s[i] != '\0'; i++)
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, s[i]);
+    }
+    else{
+    	    for (i = 0; s[i] != '\0'; i++)
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, s[i]);
+    }
 }
 void cloud7(int xpos, int ypos, char *line1, char *line2,char *line3)
     {
     	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluOrtho2D(20,480,20,480);
+	    glLoadIdentity();
+	     gluOrtho2D(20,480,20,480);
         //glPushMatrix();
         glTranslatef(xpos, ypos,0);
         glColor3f(1, 1, 1);
@@ -66,9 +72,9 @@ void cloud7(int xpos, int ypos, char *line1, char *line2,char *line3)
         drawCircle(12, 10, 15, 5, 0, 0, 360);
         glColor3f(1, 1, 1);
         drawEllipse(22,30,48,22.5, 5, 0, 0, 360);
-        glColor3f(1,1,1);
-        drawtext(-30, 10, line1);
-        drawtext(-30, 0, line2);
-        drawtext(-30, -10, line3);
+        glColor3f(0,0,0);
+        drawtext(-30, 10, line1,0);
+        drawtext(-30, 0, line2,0);
+        drawtext(-30, -10, line3,0);
         //glPopMatrix();
     }
