@@ -14,8 +14,11 @@
 #include "display2.hpp"
 #include "display8.hpp"
 #include "display7.hpp"
+#include "display9.hpp"
+#include "display10.hpp"
+#include "display11.hpp"
 
-int start1=0,start2=0,start3=0,start4=0,start5=0;
+int start1=0,start2=0,start3=0,start4=0,start5=0,start6=0,start7=0,start8=0;;
 //void leaf();
 //void sky();
 //void house();
@@ -5701,9 +5704,12 @@ void key1(unsigned char key,int x,int y){
 				
 		break;
 		case 'Y': 		
-			scene4++;scene3=0;scene1=0;scene2=0;scene3=0;
-		
+			scene4++;scene3=0;scene1=0;scene2=0;scene3=0;		
 	break;
+	     case 'B': 		
+			glutDisplayFunc(mydisplay10);scene3=0;scene1=0;scene2=0;scene4=0;
+	break;
+			
 	}
 	glutPostRedisplay();
 }
@@ -5728,8 +5734,11 @@ void menufunc(int n){
 		scene4=0;
 
 		          break;
-		//case 'B' : mydisplay();break;//
-		//case 'S' : mydisplay2();break;
+		case 6 : start6=0;glutDisplayFunc(mydisplay9);
+		//scene5=0;
+	     	break;
+		case 7 : start7=0;glutDisplayFunc(mydisplay10);break;
+		
 		
 		
 	}
@@ -5753,8 +5762,9 @@ int main(int argc,char** argv)
 	glutAddMenuEntry("Scene2",3);
 	glutAddMenuEntry("Scene3",4);
 	glutAddMenuEntry("Scene4",5);
-	//glutAddMenuEntry("Scene5",'B');
-	//glutAddMenuEntry("Moral",'S');
+	glutAddMenuEntry("Scene5",6);
+	glutAddMenuEntry("Moral",7);
+	
 	glutAttachMenu(GLUT_RIGHT_BUTTON);		
 	//glutKeyboardFunc(keys1);
 	myinit();

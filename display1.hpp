@@ -70,8 +70,7 @@ int s2,s3;
     glTexCoord2f(1, 1);
 	glEnd();
     glDisable(GL_TEXTURE_2D);
-}*/
-	
+}*/	
 void mydisplay()
 {
 	//glMatrixmode(GL_PROJECTION);

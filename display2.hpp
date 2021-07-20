@@ -77,7 +77,7 @@ glLoadIdentity();
 gluOrtho2D(20,480,20,480);
 
 if(scene1>7)
-	drawtext(250,50,"RIGHT CLICK ON THE SCREEN AND CLICK SCENE2 TO GO TO NEXT SCENE",1);
+	drawtext(210,50,"RIGHT CLICK ON THE SCREEN AND CLICK SCENE2 TO GO TO NEXT SCENE",1);
 else
 	drawtext(250,50,"PRESS 'R' TO CONTINUE",1);
 glEnd();

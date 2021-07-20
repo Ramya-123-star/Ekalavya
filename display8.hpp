@@ -65,8 +65,8 @@ stud22();
 stud11();
 stud0();
 house();
+//tree()
 man3();
-
 drona8();
 
 switch(scene4){
