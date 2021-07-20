@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-UnitCount=27
+UnitCount=26
 
 [VersionInfo]
 Major=1
@@ -281,16 +281,17 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit24]
-FileName=C:\Users\Kavya\Desktop\FRONT.jpg
-Folder=sample
-Compile=0
-Link=0
+FileName=display9.hpp
+Folder=
+Compile=1
+Link=1
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
+CompileCpp=1
 
 [Unit25]
-FileName=display9.hpp
+FileName=display10.hpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -300,7 +301,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit26]
-FileName=display10.hpp
+FileName=display11.hpp
 CompileCpp=1
 Folder=
 Compile=1

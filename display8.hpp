@@ -61,6 +61,7 @@ cloud();
 ground();
 back();
 grass1();
+//tree()
 stud22();
 stud11();
 stud0();
