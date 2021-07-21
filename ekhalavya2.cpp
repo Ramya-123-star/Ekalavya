@@ -6,10 +6,18 @@
 #include<iostream>
 #include<MMSystem.h>
 #include<string.h>
-//#define STB_IMAGE_IMPLEMENTATION
-//#include "stb_image.h"
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
 
-#include "display1.hpp"
+
+
+int start1=0,start2=0,start3=0,start4=0,start5=0,start6=0,start7=0,start8=0;
+unsigned int intro;
+float i=0.0,f,a,s,c,b,z,d,g,t,o,l;
+int s2,s3;
+int initial=0;
+
+//#include "display1.hpp"
 //#include "primitives.hpp"
 #include "display2.hpp"
 #include "display8.hpp"
@@ -17,11 +25,12 @@
 #include "display9.hpp"
 #include "display10.hpp"
 #include "display11.hpp"
+#include "bld.hpp"
 
-int start1=0,start2=0,start3=0,start4=0,start5=0,start6=0,start7=0,start8=0;
 
 
 void mydisplay();
+void applyBackgroundIntroduction();
 //void mydisplay2();
 void mydisplay3();
 //void mydisplay4();
@@ -30,6 +39,61 @@ void mydisplay3();
 void mydisplay6();
 void mydisplay7();
 void mydisplay8();
+
+void mydisplay()
+{
+	 glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(0,500,0,500);
+	
+	applyBackgroundIntroduction();
+	if(initial==0){
+		glutPostRedisplay();
+		initial=1;
+	}
+	glFlush();
+	
+}
+	void loadIntroduction(){
+    glGenTextures(1, &intro);
+    glBindTexture(GL_TEXTURE_2D, intro);
+    // set the bg1 wrapping/filtering options (on the currently bound bg1 object)
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    // load and generate the bg1
+    int width, height, nrChannels;
+    unsigned char *data = stbi_load("front2.png", &width, &height, &nrChannels, STBI_rgb_alpha);
+    if (data)
+    {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+        //glGenerateMipmap(GL_TEXTURE_2D);
+    }
+    else
+    {
+        printf("Failed to load bg1");
+    }
+    stbi_image_free(data);
+}
+
+void applyBackgroundIntroduction(){
+	
+    glEnable(GL_TEXTURE_2D);
+    glColor3f(1, 1, 1);
+    glBindTexture(GL_TEXTURE_2D, intro);
+    glBegin(GL_QUADS);
+    glVertex2f(0, 0);
+    glTexCoord2f(0, 1);
+    glVertex2f(0, 500);
+	glTexCoord2f(0, 0);    
+    glVertex2f(500, 500);
+    glTexCoord2f(1, 0);
+    glVertex2f(500, 0);
+    glTexCoord2f(1, 1);
+	glEnd();
+    glDisable(GL_TEXTURE_2D);
+}
 
 void myinit(void)
 
@@ -259,13 +323,14 @@ void menufunc(int n){
 		scene4=0;
 
 		          break;
-		case 6 : start6=0;glutDisplayFunc(mydisplay9);
+		//case 6 : start6=0;glutDisplayFunc(mydisplay9);
 		//scene5=0;
-	     	break;
+	     	//break;
 		case 7 : start7=0;glutDisplayFunc(mydisplay10);break;		
 	}
 	glutPostRedisplay();
 }
+
 int main(int argc,char** argv)
 {
 	glutInit(&argc,argv);
@@ -276,6 +341,7 @@ int main(int argc,char** argv)
 	glutKeyboardFunc(key1);
 	//pix[0].readBMPFile("FRONT.bmp");
 	glutDisplayFunc(mydisplay);
+	
 	scene1=scene2=scene3=scene4=0;
 	//glEnable(GL_DEPTH_TEST);
     glutCreateMenu(menufunc);
@@ -284,12 +350,13 @@ int main(int argc,char** argv)
 	glutAddMenuEntry("Scene2",3);
 	glutAddMenuEntry("Scene3",4);
 	glutAddMenuEntry("Scene4",5);
-	glutAddMenuEntry("Scene5",6);
+	
 	glutAddMenuEntry("Moral",7);
 	
 	glutAttachMenu(GLUT_RIGHT_BUTTON);		
 	//glutKeyboardFunc(keys1);
 	myinit();
+	loadIntroduction();
 	glutMainLoop();
 	return 0;
 }

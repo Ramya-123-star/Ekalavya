@@ -1,5 +1,6 @@
 //#include "student.hpp"
 //#include "primitives.hpp"
+#include "text.hpp"
 #include "display6.hpp"
 #include "drona.hpp"
 #include "ekalavya1.hpp"

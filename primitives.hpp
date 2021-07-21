@@ -10,6 +10,7 @@
 #include "ground1.hpp"
 #include "arrow1.hpp"
 #include "idle.hpp"
+#include "blood1.hpp"
 #include<string.h>
 //#include  "text.hpp"
 

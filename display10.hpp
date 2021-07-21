@@ -1,5 +1,4 @@
 
-
 void mydisplay10() {
 	int i;
 	//glClear(GL_COLOR_BUFFER_BIT);

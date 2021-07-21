@@ -573,6 +573,5 @@ glEnd();
 		glVertex2f(211,130);
 		glVertex2f(203.5,155);
 		glVertex2f(203.5,150);
-		glEnd();
-		
+		glEnd();		
 }

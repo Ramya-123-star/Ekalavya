@@ -1,5 +1,6 @@
 //#include "primitives.hpp"
 //#include "house8.hpp"
+#include "knife.hpp"
 
 int scene4;
 void man3() {
@@ -68,7 +69,15 @@ stud0();
 house();
 //tree()
 man3();
+//blood();
 drona8();
+
+if(scene4>7){
+	knife1();
+blood();
+}
+
+
 
 switch(scene4){
 	case 1: cloud7(342,340," ","I am Amazed by your skills! "," Who is your guru?  ");break;
@@ -78,6 +87,7 @@ switch(scene4){
 	case 5: cloud7(342,340,"If i am your guru, ","then you have to  ","give Guru Dakshina to me "); break;
 	case 6: cloud7(302,313,"What you want"," my Guru! ","  ");break;
 	case 7: cloud7(342,340,"Give me the thumb","of your right hand","as your Guru Dakshina. "); break;
+	//case 8: cloud7(302,313,"Give me the thumb","of your right hand","as your Guru Dakshina. "); break;
 }
 //cloud7(342,340," ","I am Amazed by your skills! "," Who is your guru?  ");
 //cloud7(302,313,"You are my guru,,","I have learned from you."," ");
@@ -92,8 +102,11 @@ glMatrixMode(GL_PROJECTION);
 	gluOrtho2D(-170,330,-180,305);
 
 if(scene4>7)
-	drawtext(-30,-150,"RIGHT CLICK ON THE SCREEN AND CLICK SCENE5 TO GO TO NEXT SCENE",1);
+    //blood();
+	drawtext(-30,-150,"RIGHT CLICK ON THE SCREEN AND CLICK MORAL TO GO TO NEXT SCENE",1);
+
 else
+    //blood();
 	drawtext(0,-150,"PRESS 'Y' TO CONTINUE",1);
 	glEnd();
 //glutKeyboardFunc(keys8);
